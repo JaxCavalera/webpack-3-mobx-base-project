@@ -42,7 +42,7 @@ const cssRules = {
 };
 
 const vendorList = [
-    ...Object.keys(pkg.dependencies),
+    ...Object.keys(pkg.dependencies).slice(1),
 ];
 
 export default {
@@ -51,8 +51,8 @@ export default {
         vendor: vendorList,
     },
     output: {
-        path: path.resolve(__dirname, './build/assets/js'),
-        publicPath: path.resolve(__dirname, './assets/js'),
+        path: path.resolve(__dirname, '/build/assets/js'),
+        publicPath: 'assets/js',
         filename: '[name].js',
     },
     module: {
@@ -64,7 +64,7 @@ export default {
     plugins: [
         new optimize.CommonsChunkPlugin({
             names: ['vendor'],
-            minChunks: 1,
+            minChunks: 2,
         }),
     ],
 };
