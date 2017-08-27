@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 
+export function* test() {
+    const me = yield 'me';
+}
+
 export default class App extends Component {
     render() {
         return (

@@ -5,14 +5,15 @@
   "main": "index.js",
   "scripts": {
     "dev": "cross-env BABEL_ENV=development webpack-dev-server --content-base build/ --config webpack-dev.config.babel.js",
-    "prod": "cross-env BABEL_ENV=production --config webpack-prod.config.babel.js",
-    "test": "jest",
-    "coverage": "istanbul jest"
+    "prod": "cross-env BABEL_ENV=production webpack --config webpack-prod.config.babel.js",
+    "test": "jest --config jest-test.json",
+    "test:watch": "npm run test -- --watch",
+    "coverage": "jest --config jest-coverage-config.json --coverage"
   },
   "author": "Murray Smart",
   "license": "UNLICENSED",
   "dependencies": {
-    "babel-runtime": "^6.25.0",
+    "babel-runtime": "^6.26.0",
     "mobx": "^3.2.2",
     "mobx-react": "^4.2.2",
     "react": "^15.6.1",
@@ -22,22 +23,26 @@
   "devDependencies": {
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.25.0",
+    "babel-jest": "^20.0.3",
     "babel-loader": "^7.1.1",
-    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
     "cross-env": "^5.0.5",
     "css-loader": "^0.28.4",
+    "enzyme": "^2.9.1",
     "eslint": "^4.4.1",
     "isomorphic-style-loader": "^3.0.0",
-    "istanbul": "^0.4.5",
     "jest": "^20.0.4",
+    "jest-enzyme": "^3.8.0",
     "postcss-cssnext": "^3.0.2",
     "postcss-import": "^10.0.0",
     "postcss-loader": "^2.0.6",
+    "react-test-renderer": "^15.6.1",
     "stylelint": "^8.0.0",
     "webpack": "^3.5.3",
+    "webpack-bundle-analyzer": "^2.9.0",
     "webpack-dev-server": "^2.7.1"
   }
 }
