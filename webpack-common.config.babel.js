@@ -1,6 +1,9 @@
 // NPM Modules
 import path from 'path';
-import webpack, { optimize } from 'webpack';
+import { optimize } from 'webpack';
+import postcssImport from 'postcss-import';
+import precss from 'precss';
+import autoprefixer from 'autoprefixer';
 
 // Package.json
 import pkg from './package.json';
@@ -16,7 +19,7 @@ const cssRules = {
     exclude: /node_modules/,
     use: [
         {
-            loader: 'isomorphic-style-loader',
+            loader: 'style-loader',
         },
         {
             loader: 'css-loader',
@@ -27,12 +30,12 @@ const cssRules = {
         {
             loader: 'postcss-loader',
             options: {
-                plugins: (loader) => [
-                    require('postcss-import')({
+                plugins: loader => [
+                    postcssImport({
                         root: loader.resourcePath,
                     }),
-                    require('postcss-cssnext')(),
-                    require('autoprefixer')({
+                    precss(),
+                    autoprefixer({
                         browsers: '> 3%',
                     }),
                 ],
@@ -51,7 +54,7 @@ export default {
         vendor: vendorList,
     },
     output: {
-        path: path.resolve(__dirname, '/build/assets/js'),
+        path: path.resolve(__dirname, './build/assets/js'),
         publicPath: 'assets/js',
         filename: '[name].js',
     },

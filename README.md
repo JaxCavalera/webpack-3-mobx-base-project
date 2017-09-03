@@ -17,3 +17,8 @@ To install, just run `npm i` in a terminal / cmd prompt at the project root dire
 Change the class name in `build/index.html` so it matches up with the one you are specifying in the `src/index.js` file as the **targetClassName** value.
 
 Search and Replace the project BEM prefix **bemprefix** with the BEM prefix you want to use for your project.
+
+## TODO
+- Implement hot reloading    
+- Implement uglification on production codebase    
+- Configure coverage to exclude spec files, build directory and other non-src files in reports    

@@ -6,9 +6,7 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 // Config Imports
 import baseConfig from './webpack-common.config.babel';
 
-const prodConfig = {
-    ...baseConfig,
-};
+const prodConfig = baseConfig;
 
 prodConfig.plugins = [
     ...prodConfig.plugins,
