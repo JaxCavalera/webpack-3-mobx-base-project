@@ -1,5 +1,4 @@
 // NPM Modules
-import path from 'path';
 import { HotModuleReplacementPlugin } from 'webpack';
 
 // Base config

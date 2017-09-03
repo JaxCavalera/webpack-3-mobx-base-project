@@ -1,6 +1,4 @@
 // NPM Packages
-import path from 'path';
-import webpack from 'webpack';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 // Config Imports

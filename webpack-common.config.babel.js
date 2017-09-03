@@ -12,6 +12,28 @@ const jsRules = {
     test: /\.js$/,
     exclude: /node_modules/,
     loader: 'babel-loader',
+
+    // These options override .babelrc to enable tree-shaking for React Hot Module Loading
+    options: {
+        babelrc: false,
+        plugins: [
+            'react-hot-loader/babel',
+            'transform-object-rest-spread',
+            'transform-runtime',
+        ],
+        presets: [
+            [
+                'env',
+                {
+                    targets: {
+                        browsers: '> 3%',
+                    },
+                    modules: false,
+                },
+            ],
+            'react',
+        ],
+    },
 };
 
 const cssRules = {
@@ -50,7 +72,7 @@ const vendorList = [
 
 export default {
     entry: {
-        app: ['./src/index.js'],
+        app: ['react-hot-loader/patch', './src/index.js'],
         vendor: vendorList,
     },
     output: {
