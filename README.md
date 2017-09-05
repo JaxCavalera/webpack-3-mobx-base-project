@@ -20,4 +20,3 @@ Search and Replace the project BEM prefix **bemprefix** with the BEM prefix you 
 
 ## TODO
 - Implement uglification on the production codebase
-- Configure coverage to exclude spec files, build directory and other non-src files in reports

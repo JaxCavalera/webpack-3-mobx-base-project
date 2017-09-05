@@ -1,14 +1,14 @@
 {
   "name": "basic-webpack-3-react-app-config",
-  "version": "0.0.1-beta.1",
+  "version": "0.0.1-beta.2",
   "description": "A basic webpack 3 and react config with jest for tests and instanbul for test coverage",
   "main": "index.js",
   "scripts": {
     "dev": "cross-env BABEL_ENV=development webpack-dev-server --content-base build/ --config webpack-dev.config.babel.js",
     "prod": "cross-env BABEL_ENV=production webpack --config webpack-prod.config.babel.js",
-    "test": "jest --config jest-test.json",
+    "test": "jest --config jest-test.js",
     "test:watch": "npm run test -- --watch",
-    "coverage": "jest --config jest-coverage-config.json --coverage"
+    "coverage": "jest --config jest-coverage-config.js --coverage"
   },
   "author": "Murray Smart",
   "license": "UNLICENSED",
@@ -40,7 +40,7 @@
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-react": "^7.3.0",
     "jest": "^20.0.4",
-    "jest-enzyme": "^3.8.0",
+    "jest-enzyme": "^3.8.1",
     "postcss-import": "^10.0.0",
     "postcss-loader": "^2.0.6",
     "precss": "^2.0.0",

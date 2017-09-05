@@ -11,6 +11,9 @@ module.exports = {
     },
     globals: {
         fetch: false,
+        shallow: false,
+        render: false,
+        mount: false,
     },
     env: {
         jest: true,
