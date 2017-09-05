@@ -1,6 +1,6 @@
 {
   "name": "basic-webpack-3-react-app-config",
-  "version": "0.0.1-beta.2",
+  "version": "0.0.1-beta.3",
   "description": "A basic webpack 3 and react config with jest for tests and instanbul for test coverage",
   "main": "index.js",
   "scripts": {

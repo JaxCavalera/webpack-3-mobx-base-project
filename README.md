@@ -19,4 +19,4 @@ Change the class name in `build/index.html` so it matches up with the one you ar
 Search and Replace the project BEM prefix **bemprefix** with the BEM prefix you want to use for your project.
 
 ## TODO
-- Implement uglification on the production codebase
+- Implement Stylelint
