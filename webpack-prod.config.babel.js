@@ -26,9 +26,13 @@ if (hasCssLoaderConfig) {
 
 prodConfig.plugins = [
     ...prodConfig.plugins,
+
+    // Generates an overview of the bundles produced via commonsChunkPlugin
     new BundleAnalyzerPlugin({
         analyzerMode: 'static',
     }),
+
+    // Removes comments from JS and minifies it down without mangling
     new optimize.UglifyJsPlugin({
         parallel: true,
         comments: false,

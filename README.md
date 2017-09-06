@@ -14,7 +14,7 @@ It makes a few assumptions:
 To install, just run `npm i` in a terminal / cmd prompt at the project root directory
 
 # Usage
-Change the class name in `build/index.html` so it matches up with the one you are specifying in the `src/index.js` file as the **targetClassName** value.
+Change the class name in `build/index.html` so it matches up with the one being passed as the value in the `src/index.js` file where **findAndRenderToTarget** is being called.
 
 Search and Replace the project BEM prefix **bemprefix** with the BEM prefix you want to use for your project.
 
