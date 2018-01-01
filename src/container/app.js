@@ -1,31 +1,37 @@
 // NPM Modules
+import { Route, BrowserRouter, Switch } from 'react-router-dom';
 import React, { Component } from 'react';
+import { inject, observer } from 'mobx-react';
+
+// Pages
+import Home from '../pages/Home/Home';
+import DemoComponent from '../components/DemoComponent/DemoComponent';
 
 // Styles
 import './App.css';
 
-// Logic
-import * as logic from './App-logic';
+// Initial State
+export const initialState = {
+    placeholderState: 'some placeholder',
+};
 
-// Constants
-import * as constants from './App-constants';
+export default inject('store')(observer(class App extends Component {
+    constructor(props) {
+        super(props);
+        this.appStore = this.props.store.appStore;
+    }
 
-export default class App extends Component {
     render() {
-
-        const output = logic.startConsoleDemo(constants.demoData);
-        console.log('Output: ', output);
-        console.log('Expected Output: ', constants.result);
-        const isIdentical = !output.some((item, index) => constants.result[index] !== item);
-        console.log(isIdentical ? 'Success' : 'Fail');
-
         return (
-            <div className="bemprefix__app">
-                <span>App Components or Routing Goes Here</span>
-                <div className="bemprefix__app-demo-wrapper">
-                    {logic.generateDemoInstances(['this', 'is', 'some', 'demo', 'data'])}
+            <BrowserRouter>
+                <div className='bemprefix__app'>
+                    <Switch>
+                        <Route exact path='/' component={Home} />
+                        <Route exact path='/single' render={() => <DemoComponent dataValue='standaloneVersion' />} />
+                        <Route render={() => <div>page not found or index.html is being ran directly on a computer instead of hosted so routes won't work</div>} />
+                    </Switch>
                 </div>
-            </div>
+            </BrowserRouter>
         );
     }
-}
+}));

@@ -2,9 +2,15 @@
 import React from 'react';
 import reactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
+import { Provider } from 'mobx-react';
+import { observable } from 'mobx';
 
 // Component
-import App from './container/App';
+import App, { initialState as appStore } from './container/App';
+
+const store = observable({
+    appStore,
+});
 
 /**
  * Used to render out a copy of the react application (nested inside Component) to the targetDiv
@@ -14,7 +20,9 @@ import App from './container/App';
 const renderToTargetDiv = (targetDiv, Component) => {
     reactDOM.render(
         <AppContainer>
-            <Component />
+            <Provider store={store}>
+                <Component />
+            </Provider>
         </AppContainer>,
         targetDiv,
     );
