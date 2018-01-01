@@ -11,16 +11,9 @@ import DemoComponent from '../components/DemoComponent/DemoComponent';
 import './App.css';
 
 // Initial State
-export const initialState = {
-    placeholderState: 'some placeholder',
-};
+export const initialState = {};
 
 export default inject('store')(observer(class App extends Component {
-    constructor(props) {
-        super(props);
-        this.appStore = this.props.store.appStore;
-    }
-
     render() {
         return (
             <BrowserRouter>

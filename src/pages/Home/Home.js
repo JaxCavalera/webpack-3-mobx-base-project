@@ -11,6 +11,11 @@ import * as logic from './Home-logic';
 // Constants
 import * as constants from './Home-constants';
 
+// Initial State
+export const initialState = {
+    placeholderItem: 'some placeholder value',
+};
+
 export default inject('store')(observer(class Home extends Component {
     constructor(props) {
         super(props);
