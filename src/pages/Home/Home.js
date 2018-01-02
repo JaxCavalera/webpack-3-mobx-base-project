@@ -8,9 +8,6 @@ import './Home.css';
 // Logic
 import * as logic from './Home-logic';
 
-// Constants
-import * as constants from './Home-constants';
-
 // Initial State
 export const initialState = {
     placeholderItem: 'some placeholder value',
@@ -24,8 +21,10 @@ export default inject('store')(observer(class Home extends Component {
 
     render() {
         return (
-            <div className="bemprefix__app">
-                <span>Home Page Content Goes Here including sub-routes</span>
+            <div className="bemprefix__home">
+                <div className="bemprefix__home-demos-wrapper">
+                    {logic.generateDemoInstances(['here', 'is', 'some', 'demo', 'data'])}
+                </div>
             </div>
         );
     }

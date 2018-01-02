@@ -1,8 +1,12 @@
 // NPM Modules
 import React, { Component } from 'react';
 
+// Styles
+import './DemoComponent.css';
+
 export default class DemoComponent extends Component {
     render() {
+        // Destructure injected props to reduce boilerplate
         const { dataValue } = this.props;
 
         return (
