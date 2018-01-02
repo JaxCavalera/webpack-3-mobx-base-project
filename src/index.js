@@ -6,11 +6,9 @@ import { Provider } from 'mobx-react';
 import { observable } from 'mobx';
 
 // Component
-import App, { initialState as appStore } from './container/App';
+import App from './container/App';
 
-const store = observable({
-    appStore,
-});
+const store = observable({});
 
 /**
  * Used to render out a copy of the react application (nested inside Component) to the targetDiv
