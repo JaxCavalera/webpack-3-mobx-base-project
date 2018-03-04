@@ -14,6 +14,7 @@ import * as actions from './DemoComponent-actions';
 // Initial state
 export const initialDemoStore = {
     inputValue: '',
+    testJson: {},
 };
 
 export default inject('store')(observer(class DemoComponent extends Component {
@@ -22,18 +23,24 @@ export default inject('store')(observer(class DemoComponent extends Component {
         logic.handleInputUpdate(this.props.store.homeStore[this.props.uuid], e.target.value, actions.updateTextInput);
     }
 
+    callFetchData = () => {
+        logic.fetchData(this.props.store.homeStore[this.props.uuid]);
+    }
+
     render() {
         // Destructure injected props to reduce boilerplate
         const { dataValue, uuid } = this.props;
         console.log(`just rendered ${uuid}`);
 
         // Destructure store items to reduce boilerplate
-        const { inputValue } = this.props.store.homeStore[uuid];
+        const { inputValue, testJson } = this.props.store.homeStore[uuid];
 
         return (
             <div className="bemprefix__demo-component">
                 <span>{`This is a test component with a data value of ${dataValue}.`}</span>
                 <input type="text" value={inputValue} onChange={this.callHandleInputUpdate} />
+                <button onClick={this.callFetchData}>Fetch</button>
+                <p>{logic.showData(testJson)}</p>
             </div>
         );
     }
